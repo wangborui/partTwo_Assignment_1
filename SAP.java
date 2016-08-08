@@ -22,7 +22,7 @@ import edu.princeton.cs.algs4.StdOut;
  * @author Borui Wang
  */
 public class SAP {
-    private Digraph dig;
+   private Digraph dig;
    // constructor takes a digraph (not necessarily a DAG)
    public SAP(Digraph G)
    {
