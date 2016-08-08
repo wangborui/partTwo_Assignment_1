@@ -11,8 +11,6 @@ package partTwo_Assignment_1;
  * and open the template in the editor.
  */
  
-import java.io.File;
-
 import edu.princeton.cs.algs4.BreadthFirstDirectedPaths;
 import edu.princeton.cs.algs4.Digraph;
 import edu.princeton.cs.algs4.In;
@@ -24,7 +22,6 @@ import edu.princeton.cs.algs4.StdOut;
  * @author Borui Wang
  */
 public class SAP {
-
     private Digraph dig;
    // constructor takes a digraph (not necessarily a DAG)
    public SAP(Digraph G)
@@ -122,7 +119,7 @@ public class SAP {
 
    // do unit testing of this class
    public static void main(String[] args){
-        In in = new In(new File("C:\\Users\\Borui Wang\\Desktop\\wordnet-testing\\wordnet\\digraph2.txt"));
+        In in = new In("C:\\Users\\Borui Wang\\Desktop\\wordnet-testing\\wordnet\\digraph2.txt");
         Digraph G = new Digraph(in);
         SAP sap = new SAP(G);
         int a = 1;
