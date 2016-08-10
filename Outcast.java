@@ -39,12 +39,16 @@ public class Outcast {
    }
    public static void main(String[] args)  // see test client below
    {
-        WordNet wordnet = new WordNet("C:\\Users\\Borui Wang\\Desktop\\wordnet-testing\\wordnet\\synsets.txt","C:\\Users\\Borui Wang\\Desktop\\wordnet-testing\\wordnet\\hypernyms.txt");
+        WordNet wordnet = new WordNet("C:\\Users\\Borui Wang\\Desktop\\wordnet-testing\\wordnet\\synsets.txt","C:\\Users\\Borui Wang\\Desktop\\wordnet-testing\\wordnet\\hypernyms3InvalidTwoRoots.txt");
        Outcast outcast = new Outcast(wordnet);
   
-           In in = new In("C:\\Users\\Borui Wang\\Desktop\\wordnet-testing\\wordnet\\outcast11.txt");
+           In in = new In("C:\\Users\\Borui Wang\\Desktop\\wordnet-testing\\wordnet\\outcast10a.txt");
            String[] nouns = in.readAllStrings();
-           StdOut.println("outcast11.txt" + ": " + outcast.outcast(nouns));
+           for(String a : nouns){
+               StdOut.print(a + " ");
+           }
+           StdOut.println();
+           StdOut.println("Outcast" + ": " + outcast.outcast(nouns));
      
    }
 }

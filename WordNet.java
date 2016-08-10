@@ -35,6 +35,16 @@ public class WordNet {
        addSynsetDictionary();
        addHypernymsDictionary();
    }
+   private void verifyOneRoot(Digraph G){
+       int root = -1;
+       for(int i = 0; i < G.V(); i++){
+           if(G.outdegree(i) == 0)
+               if(root < 0)
+                  root = i;
+               else 
+                  throw new IllegalArgumentException("Hypernyms contains more than 1 root");
+        }
+   }
    private void addHypernymsDictionary(){
         In in = new In(hypernyms);
         Digraph g = new Digraph(synsetsTable.size());
@@ -45,6 +55,8 @@ public class WordNet {
                g.addEdge(Integer.parseInt(synset[0]), Integer.parseInt(synset[1])); 
             }
         }
+        //check if only one root present
+        verifyOneRoot(g);
         this.sap = new SAP(g);
    }
    private void addSynsetDictionary(){
@@ -118,7 +130,9 @@ public class WordNet {
 //        for(String a: wn.nouns())
 //            StdOut.println(a);
 //        StdOut.println(wn.isNoun("ACE_inhibitors"));
-          StdOut.println(wn.distance("Black_Plague", "black_marlin"));
-          StdOut.println(wn.sap("Black_Plague", "black_marlin"));
+        String s = "Saint_Ambrose";
+        String a = "entity";
+          StdOut.println(wn.distance(s, a));
+          StdOut.println(wn.sap(s, a));
    }
 }
